@@ -1,0 +1,33 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    let dict = {
+        "(":")",
+        "{":"}",
+        "[":"]"
+    }
+    let status=true 
+    let previous=[]
+
+    for (i=0 ; i<=s.length ;i++)
+    {   
+         if(dict[previous[previous.length-1]]==s[i])
+            {
+                previous.pop()
+                continue
+            }
+            else if(s[i] in dict)
+                {
+                    previous.push(s[i])
+                }
+            else 
+            {   
+                status=false 
+                break
+            }
+    }
+    return status 
+    
+};
